@@ -1,6 +1,6 @@
-# Cephla Flat‑field Tool
+# Cephla Lab: Flat‑field Tool
 
-CLI + drag‑and‑drop GUI for BaSiC flat‑field corrections on microscopy TIFF stacks.
+Microscopy TIFF stacks -> Squid acquisitions
 
 ---
 
