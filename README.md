@@ -1,29 +1,33 @@
-# Flat‑field Tool: Microscopy TIFF stacks -> Squid acquisitions
+# Flat‑field Tool: Microscopy TIFF stacks → Squid acquisitions
 
 ## Install
 
-```bash
-# clone → install in one step
-pip install git+https://github.com/your-org/flatfield_tool.git
+**Clone the Repository:**
 
-# or, from a checkout
-pip install -r deps/dependencies.txt
-```
+   ```bash
+   git clone https://github.com/maragall/flatfield_tool.git
+   cd flatfield_tool
+   ```
 
-*Python ≥ 3.9* · deps: numpy, scikit‑image, basicpy, PyQt5, matplotlib.
+**Install Dependencies with `uv`:**
 
-## Quick use
+   You can install it using pip:
+
+   ```bash
+   pip install uv
+   ```
+
+   Then, install the project dependencies:
+
+   ```bash
+   uv pip install -r pyproject.toml
+   ```
 
 ### GUI
 
 ```bash
 python -m flatfield.gui.flatfield_gui
 ```
-
-1. Drop the **flatfields** folder on *Apply* →
-2. Drop acquisition folders.
-
-Corrected images land in `~/Downloads/<acq>_ff/`.
 
 ### CLI
 
@@ -32,4 +36,10 @@ flatfield compute /path/to/acq
 flatfield apply  /path/to/flatfields_*  /path/to/acq1 …
 ```
 
-## Desktop Shortcut Setup
+## Desktop Shortcut Setup (Ubuntu/Windows)
+
+From the repo's root folder, run the following command:
+
+```bash
+python3 create_desktop_shortcut.py
+```
