@@ -40,8 +40,6 @@ flatfield apply  /path/to/flatfields_*  /path/to/acq1 …
 
 ## Desktop shortcuts
 
-Making a launcher avoids the terminal entirely and lets end‑users start the GUI like any other application. Follow the instructions **exactly**—file names and paths are case‑sensitive on macOS & Linux.
-
 ### Linux — XDG `.desktop` launcher (GNOME/KDE/XFCE, etc.)
 
 1. **Create the file** `~/.local/share/applications/flatfield.desktop` with the following contents:
