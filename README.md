@@ -7,7 +7,11 @@ CLI + drag‑and‑drop GUI for BaSiC flat‑field corrections on microscopy
 ## Install
 
 ```bash
-pip install git+https://github.com/your‑org/flatfield_tool.git
+# clone → install in one step
+pip install git+https://github.com/your-org/flatfield_tool.git
+
+# or, from a checkout
+pip install -r deps/dependencies.txt
 ```
 
 *Python ≥ 3.9* · deps: numpy, scikit‑image, basicpy, PyQt5, matplotlib.
