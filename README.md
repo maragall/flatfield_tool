@@ -1,4 +1,4 @@
-# Flat‑field Tool: Microscopy TIFF stacks → Squid acquisitions
+# Microscopy TIFF stacks → Squid acquisitions
 
 ## Install
 
