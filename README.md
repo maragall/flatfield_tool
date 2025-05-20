@@ -9,6 +9,13 @@
    cd flatfield_tool
    ```
 
+**Create & Activate Conda Environment:**
+
+```bash
+conda create -n flatfield python=3.10 -y
+conda activate flatfield
+```
+
 **Install Dependencies with `uv`:**
 
    You can install it using pip:
