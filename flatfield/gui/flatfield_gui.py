@@ -342,7 +342,7 @@ class _ComputeTab(QWidget):
 class FlatfieldGUI(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Cephla Flat-field Tool (Drag-and-Drop)")
+        self.setWindowTitle("Cephla Flat-field Tool")
         tabs = QTabWidget(self)
         tabs.addTab(_ApplyTab(), "Apply")
         tabs.addTab(_ComputeTab(), "Compute")
