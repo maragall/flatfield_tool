@@ -1,5 +1,0 @@
-numpy>=1.26
-scikit-image>=0.23
-basicpy>=1.0
-PyQt5>=5.15
-matplotlib>=3.8
