@@ -40,43 +40,85 @@ flatfield apply  /path/to/flatfields_*  /path/to/acq1 …
 
 ## Desktop shortcuts
 
-### Linux (XDG *.desktop*)
+Making a launcher avoids the terminal entirely and lets end‑users start the GUI like any other application. Follow the instructions **exactly**—file names and paths are case‑sensitive on macOS & Linux.
 
-1. Save file `~/.local/share/applications/flatfield.desktop`:
+### Linux — XDG `.desktop` launcher (GNOME/KDE/XFCE, etc.)
+
+1. **Create the file** `~/.local/share/applications/flatfield.desktop` with the following contents:
 
    ```ini
    [Desktop Entry]
    Type=Application
-   Name=Cephla Flat‑field Tool
+   Name=Cephla Flat‑field Tool
    Comment=Compute / apply flat‑field corrections (GUI)
    Exec=python3 -m flatfield.gui.flatfield_gui
-   Icon=utilities-terminal
+   Icon=utilities-terminal   # replace with a custom icon path if desired
    Terminal=false
    Categories=Science;Graphics;
    ```
-2. Make it executable: `chmod +x ~/.local/share/applications/flatfield.desktop`
-3. Refresh the desktop database (`update-desktop-database`) or re‑log; then pin the launcher from the application menu.
+2. **Mark it executable**:
 
-### Windows (.bat + shortcut)
+   ```bash
+   chmod +x ~/.local/share/applications/flatfield.desktop
+   ```
+3. **Refresh** the application database:
 
-1. In the repo root create `run-flatfield-gui.bat`:
+   ```bash
+   update-desktop-database ~/.local/share/applications || true
+   ```
+4. **Launch & pin**: open your desktop’s app menu, search for *Cephla Flat‑field Tool*, then drag it to the dock / favourites.
+
+> **Wayland users:** the steps are identical—only the display server differs.
+
+###   Windows 10 / 11
+
+1. In the project root (or any folder on disk) create **`run-flatfield-gui.bat`**:
 
    ```bat
    @echo off
-   REM Cephla Flat‑field Tool – launch GUI
+   REM Cephla Flat‑field Tool – launch GUI
    python -m flatfield.gui.flatfield_gui
    ```
-2. Right‑click the file → *Send to → Desktop (create shortcut)*.
-3. Rename / pin the shortcut to Start or the taskbar.
 
-### macOS (.command)
+   *If your Python executable is not on PATH, replace **`python`** with the full path to **`python.exe`** (e.g. **`C:\Users\<you>\AppData\Local\Programs\Python\Python312\python.exe`**).*
+2. **Create a shortcut**:
 
-1. Create `FlatfieldTool.command` (e.g., in the repo root):
+   * Right‑click `run-flatfield-gui.bat` → *Send to* → *Desktop (create shortcut)*.
+3. **Optional polish**:
+
+   * Rename the shortcut to *Cephla Flat‑field Tool*.
+   * Right‑click → *Properties* → *Shortcut* tab → *Change Icon…* → browse to a `.ico` file of your choice.
+   * *Pin to Start* or *Pin to taskbar* for quick access.
+
+> Running via the batch file avoids an unwanted console window. For a fully silent start use `pythonw` instead of `python`.
+
+###   macOS (12 Monterey +)
+
+#### Option A — `.command` script (simplest)
+
+1. Create **`FlatfieldTool.command`** in the repository root:
 
    ```bash
    #!/usr/bin/env bash
-   # Cephla Flat‑field Tool – launch GUI
+   # Cephla Flat‑field Tool – launch GUI
    python3 -m flatfield.gui.flatfield_gui
    ```
-2. `chmod +x FlatfieldTool.command`
-3. Drag the script into the Dock.
+2. Make it executable:
+
+   ```bash
+   chmod +x FlatfieldTool.command
+   ```
+3. Drag `FlatfieldTool.command` into the Dock (to the right of the divider).
+
+#### Option B — Automator App (nicer icon & Spotlight‑searchable)
+
+1. Open **Automator.app** → *New Document* → *Application*.
+2. Add *Run Shell Script* action with:
+
+   ```bash
+   python3 -m flatfield.gui.flatfield_gui
+   ```
+3. Save as **`Cephla Flat‑field Tool.app`** in `/Applications`.
+4. (Optional) Replace the generic icon: *Get Info* on the `.app`, then drag‑and‑drop a `512×512 ICNS` file onto the icon thumbnail.
+5. Launch once, then right‑click the Dock icon → *Options* → *Keep in Dock*.
+
