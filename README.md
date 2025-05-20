@@ -38,8 +38,6 @@ flatfield apply  /path/to/flatfields_*  /path/to/acq1 …
 
 ## Desktop Shortcut Setup (Ubuntu/Windows)
 
-From the repo's root folder, run the following command:
-
 ```bash
 python3 create_desktop_shortcut.py
 ```
