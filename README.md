@@ -1,8 +1,4 @@
-# Cephla Lab: Flat‑field Tool
-
-Microscopy TIFF stacks -> Squid acquisitions
-
----
+# Flat‑field Tool: Microscopy TIFF stacks -> Squid acquisitions
 
 ## Install
 
