@@ -22,6 +22,9 @@
    ```bash
    uv pip install -r pyproject.toml
    ```
+   ```bash
+   pip install basicpy
+   ```
 
 ### GUI
 
