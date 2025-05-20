@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [tool.uv]
-resolver = "lowest-direct"  # conservative resolution for compatibility
+resolution = "lowest-direct"  # conservative resolution for compatibility
